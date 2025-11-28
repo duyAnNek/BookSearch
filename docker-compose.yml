@@ -1,0 +1,37 @@
+
+
+services:
+  # === DỊCH VỤ BACKEND (FASTAPI) ===
+  backend:
+    # Build từ Dockerfile trong thư mục 'backend'
+    build: ./backend
+    # Đặt tên container (tùy chọn)
+    container_name: booksearch-backend
+    # Ánh xạ port: <port_máy_tính>:<port_container>
+    ports:
+      - "8000:8000"
+    # Biến môi trường cho backend (ví dụ GEMINI_API_KEY)
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    # === Volumes (QUAN TRỌNG) ===
+    # Gắn (mount) các thư mục từ máy tính của bạn vào container
+    volumes:
+      # 1. Gắn toàn bộ thư mục gốc của dự án vào /data_root trong container
+      #    Để StaticFiles có thể truy cập ảnh
+      - .:/data_root
+      
+      # 2. Gắn thư mục code backend vào /app (trừ node_modules)
+      #    Giúp "live reload" nếu bạn sửa code
+      - ./backend:/app
+
+  # === DỊCH VỤ FRONTEND (REACT/NGINX) ===
+  frontend:
+    # Build từ Dockerfile trong thư mục 'frontend'
+    build: ./frontend
+    container_name: booksearch-frontend
+    ports:
+      # Ánh xạ port 5173 của máy tính vào port 80 của Nginx
+      - "5173:80"
+    # Đảm bảo backend khởi động trước frontend (tùy chọn)
+    depends_on:
+      - backend

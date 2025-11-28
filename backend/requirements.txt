@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pandas
+torch
+transformers
+Pillow
+tqdm
+python-multipart
+faiss-cpu
+matplotlib
+google-genai

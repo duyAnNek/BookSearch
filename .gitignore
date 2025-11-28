@@ -1,0 +1,230 @@
+# ===========================================
+# DỮ LIỆU LỚN (CRITICAL - Không được commit)
+# ===========================================
+
+Markdown/
+
+# Thư mục ảnh bìa sách (~46K ảnh, vài GB)
+all_covers/
+img_test/
+
+# Model AI đã train (vài trăm MB đến GB)
+backend/models/
+fine_tuned_clip_v2/
+model_clip/
+outputs/
+
+# Faiss index files (lớn)
+backend/app/index/
+**/index/
+*.index
+
+# Dataset files
+data/
+data_extend/
+*.jsonl
+Book.csv
+*.csv
+
+# Database files
+backend/booksearch.db
+*.db
+*.sqlite
+*.sqlite3
+
+# Compressed files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# ===========================================
+# PYTHON
+# ===========================================
+
+# Virtual environments
+.venv/
+.venv_ai/
+venv/
+env/
+ENV/
+backend/venv/
+backend/.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# ===========================================
+# NODE.JS / FRONTEND
+# ===========================================
+
+# Dependencies
+frontend/node_modules/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Production build
+frontend/build/
+frontend/dist/
+
+# ===========================================
+# IDE / EDITOR
+# ===========================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+
+# ===========================================
+# ENVIRONMENT & SECRETS
+# ===========================================
+
+# Environment variables (CRITICAL - có API keys)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Secrets
+secrets/
+*.key
+*.pem
+*.crt
+
+# ===========================================
+# OS
+# ===========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ===========================================
+# LOGS & TEMPORARY
+# ===========================================
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# ===========================================
+# DOCKER
+# ===========================================
+
+# Docker volumes
+docker-volumes/
+
+# ===========================================
+# GIT
+# ===========================================
+
+# Git conflict markers
+*.orig
+
+# ===========================================
+# PROJECT SPECIFIC
+# ===========================================
+
+# Crawled data (có thể rất lớn)
+crawl_data/link_tiki.txt
+
+# Checkpoints during training
+checkpoints/
+*.ckpt
+*.pth
+
+# Visualization outputs
+plots/
+figures/
+*.png
+*.jpg
+*.jpeg
+!frontend/public/*.png
+!frontend/public/*.jpg
+
+# Analysis results
+results/
+experiments/
+
+# ===========================================
+# GHI CHÚ
+# ===========================================
+# Các file NÊN commit:
+# - Source code (.py, .js, .jsx, .ts, .tsx)
+# - Configuration files (requirements.txt, package.json, docker-compose.yml)
+# - Documentation (README.md, *.md)
+# - Small sample data (nếu cần cho demo)
+#
+# Các file KHÔNG NÊN commit:
+# - Models (tải riêng từ Google Drive)
+# - Large datasets (tải riêng)
+# - API keys / secrets
+# - Virtual environments
+# - IDE configs

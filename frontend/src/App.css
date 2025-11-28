@@ -1,0 +1,305 @@
+/* Tổng thể */
+html, body, #root {
+  height: 100%;
+}
+
+.App {
+  text-align: center;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  background-color: #ffffff;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.App-header h1 {
+  margin: 0;
+  color: #0056b3;
+  font-size: 2.5em; /* Tăng kích thước font */
+}
+
+.App-header p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+.App-footer {
+  margin-top: 40px;
+  padding: 16px 0;
+  border-top: 1px solid #e0e0e0;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Thanh tìm kiếm */
+.search-bar-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 30px;
+  width: 100%;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #777;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tabs button.active {
+  color: #0056b3;
+  border-bottom-color: #0056b3;
+  font-weight: 600;
+}
+
+.search-form {
+  display: flex;
+  width: 100%;
+}
+
+.autocomplete-wrapper {
+  position: relative;
+  flex: 1; /* cho phép input chiếm tối đa không gian, chỉ chừa chỗ cho nút */
+  text-align: left; /* override .App text-align:center */
+  /* không set z-index cao để tránh che nút */
+}
+
+.autocomplete-wrapper input[type="text"] {
+  width: 90%;
+}
+
+.autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0; /* giới hạn trong wrapper, không che nút */
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 220px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+.autocomplete-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+}
+
+.autocomplete-list li:hover {
+  background-color: #f2f2f2;
+}
+
+.autocomplete-list li.active {
+  background-color: #e6f0ff;
+}
+
+.search-form input[type="text"] {
+  /* Chiều rộng đã được .autocomplete-wrapper kiểm soát */
+  flex-grow: 0;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+.search-form button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.search-form button:disabled {
+  background-color: #aaa;
+}
+
+/* Tải ảnh */
+.image-upload-form input[type="file"] {
+  display: none;
+}
+
+.image-upload-label {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.image-upload-label:hover {
+  background-color: #0056b3;
+}
+
+/* Lưới kết quả */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.result-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.result-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.result-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.result-item p {
+  padding: 10px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #333; /* Đảm bảo chữ màu đen */
+}
+
+.no-results {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Modal xem chi tiết */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 900px;
+  height: 70vh;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  color: #333; /* Chữ màu đen cho modal */
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #eee;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1010;
+  color: #333;
+}
+
+.modal-body {
+  display: flex;
+  height: 100%;
+}
+
+.modal-image-container {
+  width: 50%;
+  flex-shrink: 0;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-image-container img {
+  width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+}
+
+.modal-info-container {
+  width: 45%;
+  flex-shrink: 0;
+  text-align: left;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.modal-info-container h2 {
+  margin-top: 0;
+  color: #0056b3;
+}
+
+.modal-info-container p {
+  line-height: 1.6;
+}
+
+.product-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.product-link:hover {
+  background-color: #0056b3;
+}

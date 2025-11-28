@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pandas
+torch
+torchvision
+transformers
+accelerate
+datasets
+peft
+Pillow
+tqdm
+python-multipart
+faiss-cpu
+matplotlib
