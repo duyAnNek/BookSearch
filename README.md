@@ -40,6 +40,27 @@ Dự án tìm kiếm sách sử dụng AI với khả năng tìm kiếm bằng v
 
 ## 🚀 Cài đặt
 
+### 1. Lấy mã nguồn
+git clone https://github.com/duyAnNek/BookWeb.git
+
+### 2. Tải Dữ liệu (BẮT BUỘC)
+
+Do dung lượng lớn, các model AI và dữ liệu ảnh không được lưu trên GitHub. Bạn cần tải chúng về thủ công:
+
+Tải tại: `https://drive.google.com/file/d/1PMM3La9nIowGqRxCESwK2S0pkHDje3Ba/view?usp=sharing`
+
+1.  **Tải Model AI (`models`):**
+    Giải nén và đặt vào: `backend/models/`
+
+2.  **Tải Ảnh Bìa (`all_covers`):**
+    Giải nén và đặt vào: `all_covers/` (ở thư mục gốc)
+
+3.  **Tải Database (`booksearch.db`):**
+    Giải nén và đặt vào: `backend/booksearch.db`
+
+4.  **Tải file CSV (`Book.csv`):**
+    Giải nén và đặt vào: `Book.csv` (ở thư mục gốc)
+
 ### Phương thức 1: Cài đặt thủ công
 
 #### 1. Clone repository và chuẩn bị dữ liệu
